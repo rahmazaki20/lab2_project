@@ -184,20 +184,7 @@ def delete_project(user_email):
     projects.pop(project_id)
     print("Project deleted successfully!")
 
-def search_projects_by_date():
-    """Search for projects by a specific date."""
-    search_date = input("Enter date to search (YYYY-MM-DD): ")
-    if not val_date(search_date):
-        print("Invalid date format.")
-        return
-    
-    found_projects = [project for project in projects if project['start_date'] == search_date or project['end_date'] == search_date]
-    
-    if found_projects:
-        for project in found_projects:
-            print(f"{project['title']} - Target: {project['target']} EGP - Start: {project['start_date']} - End: {project['end_date']}")
-    else:
-        print("No projects found for this date.")
+
 
 
 def main():
@@ -229,8 +216,6 @@ def main():
                 edit_project(current_user_email)
             elif choice == '4':
                 delete_project(current_user_email)
-            elif choice == '5':
-                search_projects_by_date()
             elif choice == '6':
                 current_user_email = None  # Log out
                 print("Logged out successfully!")
